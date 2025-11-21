@@ -1,0 +1,667 @@
+/* ========================================
+   WHATSAPP SECTION - ADVANCED ANIMATIONS
+   Typewriter • Floating Bubbles • Scanner Effect • Ripples
+   ======================================== */
+
+/* Section Base Styles */
+.whatsapp {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a1628 0%, #1a3a2e 50%, #0a1628 100%);
+}
+
+/* Animated Gradient Mesh Background */
+.whatsapp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(37, 211, 102, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(18, 140, 126, 0.15) 0%, transparent 50%);
+    animation: meshShift 12s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes meshShift {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.1) translate(20px, -20px);
+    }
+}
+
+/* Floating WhatsApp Message Bubbles */
+.whatsapp-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.message-bubble {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 20px 20px 20px 5px;
+    opacity: 0;
+    animation: floatBubble 15s infinite;
+}
+
+.message-bubble::before {
+    content: '💬';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+/* Staggered bubble delays */
+.message-bubble:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.message-bubble:nth-child(2) {
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.message-bubble:nth-child(3) {
+    left: 50%;
+    animation-delay: 6s;
+}
+
+.message-bubble:nth-child(4) {
+    left: 70%;
+    animation-delay: 9s;
+}
+
+.message-bubble:nth-child(5) {
+    left: 90%;
+    animation-delay: 12s;
+}
+
+/* Network Connection Lines */
+.network-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.connection-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #25D366, transparent);
+    animation: lineFlow 8s linear infinite;
+}
+
+@keyframes lineFlow {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.connection-line:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.connection-line:nth-child(2) {
+    left: 40%;
+    animation-delay: 2s;
+}
+
+.connection-line:nth-child(3) {
+    left: 60%;
+    animation-delay: 4s;
+}
+
+.connection-line:nth-child(4) {
+    left: 80%;
+    animation-delay: 6s;
+}
+
+/* Sparkle Effects */
+.sparkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #25D366;
+    animation: sparkleAnim 3s ease-in-out infinite;
+}
+
+@keyframes sparkleAnim {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Title with Typewriter Effect (handled by JS) */
+.whatsapp .section-title {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.2em;
+    background: #25D366;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Subtitle Slide-in Animation */
+.whatsapp .section-subtitle {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    animation: slideInSubtitle 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes slideInSubtitle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Split-Screen Animation */
+.whatsapp-content {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.whatsapp-qr {
+    opacity: 0;
+    animation: splitSlideLeft 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s forwards;
+}
+
+@keyframes splitSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.whatsapp-info {
+    opacity: 0;
+    animation: splitSlideRight 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.8s forwards;
+}
+
+@keyframes splitSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) rotate(5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* QR Code Scanner Effect */
+.whatsapp-qr-animated {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(37, 211, 102, 0.2);
+    overflow: hidden;
+}
+
+/* Scanning Line Animation */
+.whatsapp-qr-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(37, 211, 102, 0.8),
+            transparent);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.8);
+    animation: scanLine 3s ease-in-out infinite;
+    z-index: 5;
+}
+
+@keyframes scanLine {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(300px);
+        opacity: 0;
+    }
+}
+
+/* Corner Brackets */
+.whatsapp-qr-animated::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-top: 3px solid #25D366;
+    border-left: 3px solid #25D366;
+    opacity: 0.6;
+    animation: cornerPulse 2s ease-in-out infinite;
+}
+
+@keyframes cornerPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.whatsapp-qr-animated .qr-code {
+    position: relative;
+    max-width: 250px;
+    margin: 0 auto 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-qr-animated:hover .qr-code {
+    transform: scale(1.05);
+}
+
+/* Gradient Icon Animation */
+.whatsapp-gradient-icon {
+    margin-bottom: 25px;
+    animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.whatsapp-gradient-icon svg {
+    filter: drop-shadow(0 5px 15px rgba(37, 211, 102, 0.5));
+    transition: all 0.3s ease;
+}
+
+.whatsapp-gradient-icon:hover svg {
+    filter: drop-shadow(0 8px 25px rgba(37, 211, 102, 0.8));
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Info Title */
+.whatsapp-info h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.whatsapp-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #25D366, #128C7E);
+    animation: expandUnderline 1s ease-out 1.2s forwards;
+}
+
+@keyframes expandUnderline {
+    to {
+        width: 100%;
+    }
+}
+
+/* Checkmark Appear Animation */
+.whatsapp-list {
+    list-style: none;
+    padding: 0;
+}
+
+.whatsapp-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 18px;
+    color: #cbd5e1;
+    line-height: 1.8;
+    opacity: 0;
+}
+
+.whatsapp-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transform: scale(0);
+    animation: checkmarkPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.whatsapp-list li:nth-child(1) {
+    animation: fadeInListItem 0.5s ease-out 1.4s forwards;
+}
+
+.whatsapp-list li:nth-child(1)::before {
+    animation-delay: 1.4s;
+}
+
+.whatsapp-list li:nth-child(2) {
+    animation: fadeInListItem 0.5s ease-out 1.6s forwards;
+}
+
+.whatsapp-list li:nth-child(2)::before {
+    animation-delay: 1.6s;
+}
+
+.whatsapp-list li:nth-child(3) {
+    animation: fadeInListItem 0.5s ease-out 1.8s forwards;
+}
+
+.whatsapp-list li:nth-child(3)::before {
+    animation-delay: 1.8s;
+}
+
+.whatsapp-list li:nth-child(4) {
+    animation: fadeInListItem 0.5s ease-out 2s forwards;
+}
+
+.whatsapp-list li:nth-child(4)::before {
+    animation-delay: 2s;
+}
+
+@keyframes fadeInListItem {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0) rotate(-180deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.whatsapp-list li:hover::before {
+    animation: checkmarkBounce 0.6s ease-in-out;
+}
+
+@keyframes checkmarkBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+/* WhatsApp Button - Floating Animation */
+.btn-whatsapp {
+    position: relative;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: floatButton 3s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    overflow: hidden;
+}
+
+@keyframes floatButton {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Ripple Effect on Click */
+.btn-whatsapp::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-whatsapp.ripple::before {
+    width: 400px;
+    height: 400px;
+}
+
+/* Hover Glow Effect */
+.btn-whatsapp:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow:
+        0 15px 50px rgba(37, 211, 102, 0.6),
+        0 0 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-whatsapp svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-whatsapp:hover svg {
+    transform: rotate(360deg);
+}
+
+/* Neumorphism Design Alternative */
+.whatsapp.neumorphic .whatsapp-qr-animated {
+    background: #1a3a2e;
+    box-shadow:
+        12px 12px 24px rgba(0, 0, 0, 0.3),
+        -12px -12px 24px rgba(37, 211, 102, 0.05);
+    border: none;
+}
+
+.whatsapp.neumorphic .btn-whatsapp {
+    background: #1a3a2e;
+    color: #25D366;
+    box-shadow:
+        8px 8px 16px rgba(0, 0, 0, 0.3),
+        -8px -8px 16px rgba(37, 211, 102, 0.1);
+}
+
+.whatsapp.neumorphic .btn-whatsapp:hover {
+    box-shadow:
+        inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+        inset -4px -4px 8px rgba(37, 211, 102, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .whatsapp-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .whatsapp-qr,
+    .whatsapp-info {
+        animation: fadeInUp 0.8s ease-out 0.5s forwards;
+    }
+
+    .message-bubble {
+        width: 70px;
+        height: 40px;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .message-bubble,
+    .connection-line,
+    .sparkle,
+    .btn-whatsapp,
+    .whatsapp-gradient-icon,
+    .typewriter-cursor {
+        animation: none;
+    }
+
+    .whatsapp-qr,
+    .whatsapp-info {
+        opacity: 1;
+        transform: none;
+    }
+
+    .whatsapp-list li {
+        opacity: 1;
+    }
+}

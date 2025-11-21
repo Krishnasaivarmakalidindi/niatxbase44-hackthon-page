@@ -1,0 +1,626 @@
+/* ========================================
+   ADVANCED THEMES SECTION - ANIMATIONS & EFFECTS
+   ======================================== */
+
+/* CSS Custom Properties for Easy Theming */
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --accent-cyan: #00d4ff;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --border-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+}
+
+/* ========================================
+   SECTION BASE STYLES
+   ======================================== */
+
+.themes {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1a1245 50%, #0f172a 100%);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Animated Background Overlay */
+.themes-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.03) 2px,
+            rgba(255, 255, 255, 0.03) 4px);
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* tsParticles Container */
+.themes-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.themes .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Section Title */
+.themes .section-title {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.themes .section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   SELECTED COUNTER
+   ======================================== */
+
+.selected-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 30px;
+    margin: 0 auto 40px;
+    max-width: fit-content;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.selected-counter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.counter-icon {
+    font-size: 1.2rem;
+    animation: counterPulse 2s ease-in-out infinite;
+}
+
+@keyframes counterPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.counter-text {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* ========================================
+   THEMES GRID LAYOUT
+   ======================================== */
+
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding: 20px 0;
+}
+
+/* ========================================
+   THEME CARD DESIGN
+   ======================================== */
+
+.theme-card {
+    position: relative;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    overflow: hidden;
+
+    /* Performance optimization */
+    will-change: transform, box-shadow;
+    contain: layout style paint;
+}
+
+/* Staggered Entrance Animation */
+.theme-card.animate-in {
+    animation: cardEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardEnter {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Stagger delays */
+.theme-card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.theme-card:nth-child(2) {
+    animation-delay: 150ms;
+}
+
+.theme-card:nth-child(3) {
+    animation-delay: 300ms;
+}
+
+.theme-card:nth-child(4) {
+    animation-delay: 450ms;
+}
+
+.theme-card:nth-child(5) {
+    animation-delay: 600ms;
+}
+
+.theme-card:nth-child(6) {
+    animation-delay: 750ms;
+}
+
+/* Animated Gradient Border */
+.theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: var(--border-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.theme-card:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 20px 60px rgba(0, 212, 255, 0.3),
+        0 0 40px rgba(139, 92, 246, 0.2);
+}
+
+.theme-card:hover::before {
+    opacity: 1;
+}
+
+/* Focus State for Accessibility */
+.theme-card:focus {
+    outline: 3px solid var(--accent-cyan);
+    outline-offset: 4px;
+}
+
+/* Selected State */
+.theme-card.selected {
+    background: rgba(0, 212, 255, 0.15);
+    border-color: var(--accent-cyan);
+    box-shadow:
+        0 0 30px rgba(0, 212, 255, 0.5),
+        inset 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.theme-card.selected::before {
+    opacity: 1;
+}
+
+.theme-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 18px;
+    animation: checkmarkPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   CARD CONTENT ELEMENTS
+   ======================================== */
+
+/* Icon */
+.theme-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.theme-card:hover .theme-icon {
+    animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Title */
+.theme-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+/* Description */
+.theme-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   BADGES & INDICATORS
+   ======================================== */
+
+/* Popularity Badge */
+.popularity-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--accent-purple);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    margin-bottom: 12px;
+}
+
+.popularity-icon {
+    font-size: 1rem;
+}
+
+/* Difficulty Indicator */
+.difficulty-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-left: 8px;
+}
+
+.difficulty-indicator.easy {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #10b981;
+}
+
+.difficulty-indicator.medium {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid #f59e0b;
+    color: #f59e0b;
+}
+
+.difficulty-indicator.hard {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
+/* ========================================
+   TAG PILLS
+   ======================================== */
+
+.theme-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.tag-pill {
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.theme-card:hover .tag-pill {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+/* ========================================
+   RIPPLE EFFECT
+   ======================================== */
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 212, 255, 0.5);
+    transform: scale(0);
+    animation: rippleEffect 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   TOAST NOTIFICATION
+   ======================================== */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(0, 212, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #0f172a;
+    font-weight: 600;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+    animation: toastIconSpin 0.5s ease;
+}
+
+@keyframes toastIconSpin {
+    from {
+        transform: rotate(0deg) scale(0);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.toast-message {
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .themes .section-title {
+        font-size: 2.5rem;
+    }
+
+    .theme-card {
+        padding: 32px 24px;
+    }
+
+    .theme-icon {
+        font-size: 56px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .themes {
+        padding: 60px 0;
+    }
+
+    .themes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .themes .section-title {
+        font-size: 2rem;
+    }
+
+    .themes .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .theme-card {
+        padding: 28px 20px;
+    }
+
+    .theme-icon {
+        font-size: 48px;
+    }
+
+    .theme-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .toast {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY - REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .theme-card,
+    .theme-icon,
+    .counter-icon,
+    .toast-icon {
+        animation: none !important;
+    }
+
+    .theme-card {
+        transition: none;
+    }
+
+    .theme-card.animate-in {
+        opacity: 1;
+        transform: scale(1);
+        animation: none;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    .themes {
+        background: white;
+        color: black;
+    }
+
+    .themes-particles,
+    .themes-bg-overlay,
+    .toast,
+    .selected-counter {
+        display: none;
+    }
+
+    .theme-card {
+        break-inside: avoid;
+        border: 2px solid #ccc;
+        background: white;
+    }
+
+    .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   LOADING STATE
+   ======================================== */
+
+.themes-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-cyan);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

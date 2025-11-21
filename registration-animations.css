@@ -1,0 +1,565 @@
+/* ========================================
+   REGISTRATION SECTION - ADVANCED ANIMATIONS
+   Gradient Text • Glassmorphism • 3D Tilt • Countdown
+   ======================================== */
+
+/* Section Base Styles */
+.registration {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+/* Floating Geometric Shapes Background */
+.registration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    z-index: 1;
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* Floating Particles Container */
+.registration-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.floating-hexagon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    opacity: 0.15;
+    animation: floatHexagon 20s infinite;
+}
+
+.floating-hexagon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2563EB, #8b5cf6);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: rotateHexagon 10s linear infinite;
+}
+
+@keyframes floatHexagon {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.15;
+    }
+
+    90% {
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: translate(100vw, -100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes rotateHexagon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Title Gradient Animation */
+.registration .section-title {
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(90deg,
+            #2563EB 0%,
+            #00d4ff 25%,
+            #8b5cf6 50%,
+            #00d4ff 75%,
+            #2563EB 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 4s linear infinite;
+}
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Glitch Effect on Hover */
+.registration .section-title:hover {
+    animation: glitchTitle 0.3s ease-in-out;
+}
+
+@keyframes glitchTitle {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, -2px);
+    }
+
+    80% {
+        transform: translate(2px, 2px);
+    }
+}
+
+/* Subtitle Staggered Fade-in */
+.registration .section-subtitle {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Registration Content Staggered Animation */
+.registration-content {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.registration-info {
+    opacity: 0;
+    animation: slideInLeft 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.registration-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.registration-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2563EB, #00d4ff);
+    animation: expandLine 1s ease-out 0.8s forwards;
+}
+
+@keyframes expandLine {
+    to {
+        width: 100%;
+    }
+}
+
+/* List Items Sequential Reveal */
+.registration-list {
+    list-style: none;
+    padding: 0;
+}
+
+.registration-list>li {
+    opacity: 0;
+    transform: translateX(-20px);
+    margin-bottom: 18px;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+.registration-list>li:nth-child(1) {
+    animation: fadeInItem 0.5s ease-out 1s forwards;
+}
+
+.registration-list>li:nth-child(2) {
+    animation: fadeInItem 0.5s ease-out 1.2s forwards;
+}
+
+.registration-list>li:nth-child(3) {
+    animation: fadeInItem 0.5s ease-out 1.4s forwards;
+}
+
+.registration-list>li:nth-child(4) {
+    animation: fadeInItem 0.5s ease-out 1.6s forwards;
+}
+
+@keyframes fadeInItem {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.arrow-icon {
+    color: #00d4ff;
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.registration-list>li:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* QR Code Container - Glassmorphism */
+.registration-qr {
+    opacity: 0;
+    animation: slideInRight 0.8s ease-out 0.7s forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.registration-qr-glow {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* 3D Tilt Effect on Mouse Move (via JS) */
+.registration-qr-glow.tilt-active {
+    transform: rotateY(var(--tilt-x, 0deg)) rotateX(var(--tilt-y, 0deg)) scale(1.02);
+    box-shadow:
+        0 20px 60px rgba(37, 99, 235, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Pulsing Glow Around QR Code */
+.qr-pulse {
+    position: relative;
+    max-width: 280px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
+    animation: qrPulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes qrPulseGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgba(37, 99, 235, 0.5),
+            0 0 40px rgba(0, 212, 255, 0.3),
+            0 0 60px rgba(139, 92, 246, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(37, 99, 235, 0.8),
+            0 0 60px rgba(0, 212, 255, 0.6),
+            0 0 90px rgba(139, 92, 246, 0.4);
+    }
+}
+
+.qr-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #00d4ff;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+/* Animated Countdown Timer */
+.countdown-container {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.countdown-container h4 {
+    color: #00d4ff;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, #2563EB, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 80px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
+    border: 2px solid rgba(37, 99, 235, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Flip Animation for Countdown */
+.countdown-value.flip {
+    animation: flipNumber 0.6s ease-in-out;
+}
+
+@keyframes flipNumber {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.countdown-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* Button Morph Animation */
+.btn-animated {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(135deg, #2563EB, #00d4ff);
+    background-size: 200% 200%;
+    animation: gradientShiftBtn 3s ease infinite;
+}
+
+@keyframes gradientShiftBtn {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.btn-animated::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-animated:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.btn-animated:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow:
+        0 15px 40px rgba(37, 99, 235, 0.5),
+        0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-animated:active {
+    transform: scale(0.98);
+}
+
+.arrow-anim {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-animated:hover .arrow-anim {
+    transform: translateX(5px);
+    animation: arrowBounce 0.8s ease infinite;
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+/* Circuit Board Pattern Background */
+.circuit-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.05;
+    background-image:
+        linear-gradient(90deg, rgba(37, 99, 235, 0.3) 1px, transparent 1px),
+        linear-gradient(rgba(37, 99, 235, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: circuitMove 20s linear infinite;
+}
+
+@keyframes circuitMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 50px 50px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .countdown-timer {
+        gap: 12px;
+    }
+
+    .countdown-value {
+        font-size: 2rem;
+        min-width: 60px;
+        height: 70px;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .registration .section-title,
+    .floating-hexagon,
+    .qr-pulse,
+    .btn-animated,
+    .countdown-value {
+        animation: none;
+    }
+
+    .registration-info,
+    .registration-qr {
+        opacity: 1;
+        transform: none;
+    }
+}

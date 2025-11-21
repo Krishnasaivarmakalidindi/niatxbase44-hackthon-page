@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NIAT × Base44 Hackathon - A no-code innovation challenge for MRV engineering students on 27 November 2025. Think. Design. Prototype. — No Code Needed.">
+    <meta property="og:title" content="NIAT × Base44 Hackathon 2025">
+    <meta property="og:description"
+        content="Join us on 27 November for a no-code innovation challenge. Design-first solutions without writing code!">
+    <meta property="og:image" content="./assets/og-image.png">
+    <meta property="og:type" content="website">
+    <title>NIAT × Base44 Hackathon 2025 | MRV Vishwavidyapeeth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about-animations.css">
+    <link rel="stylesheet" href="schedule-animations.css">
+    <link rel="stylesheet" href="themes-advanced.css">
+    <link rel="stylesheet" href="registration-animations.css">
+    <link rel="stylesheet" href="whatsapp-animations.css">
+    <link rel="stylesheet" href="prizes-animations.css">
+    <link rel="stylesheet" href="venue-enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-logos">
+                    <img src="./assets/niat-logo.png" alt="NIAT Logo" class="nav-logo">
+                    <span class="nav-separator">|</span>
+                    <img src="./assets/base44-logo.png" alt="Base44 Logo" class="nav-logo">
+                </div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#schedule">Schedule</a>
+                    <a href="#themes">Themes</a>
+                    <a href="#prizes">Prizes</a>
+                    <a href="#register">Register</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logos partnership-banner">
+                    <img src="./assets/niat-logo.png" alt="NIAT Logo" class="hero-logo">
+                    <span class="hero-separator">|</span>
+                    <img src="./assets/base44-logo.png" alt="Base44 Logo" class="hero-logo">
+                    <span class="hero-separator">|</span>
+                    <img src="./assets/mrv-logo.png" alt="MRV Logo" class="hero-logo">
+                    <span class="hero-separator">|</span>
+                    <img src="./assets/mrtc-logo.png" alt="MRTC Logo" class="hero-logo">
+                    <span class="hero-separator">|</span>
+                    <img src="./assets/wix-logo.png" alt="WIX Logo" class="hero-logo">
+                </div>
+                <h1 class="hero-title gradient-text">Think. Design. Prototype. — No Code Needed.</h1>
+                <div class="hero-details">
+                    <div class="hero-badges">
+                        <span class="badge">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            27 November 2025
+                        </span>
+                        <span class="badge">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            9:00 AM – 4:00 PM
+                        </span>
+                        <span class="badge">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            MRV Vishwavidyapeeth, Hyderabad
+                        </span>
+                    </div>
+                </div>
+                <div class="hero-countdown">
+                    <span id="countdown-timer"></span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#register" class="btn btn-primary">Register Your Team</a>
+                    <a href="#whatsapp" class="btn btn-secondary">Join WhatsApp Group</a>
+                </div>
+            </div>
+        </div>
+        <canvas id="particle-bg"></canvas>
+        <div class="hero-bg-pattern"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about" data-parallax>
+        <div class="about-parallax-bg"></div>
+        <div class="container">
+            <h2 class="section-title split-text" data-split>About the Hackathon</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    The <strong>NIAT × Base44 Hackathon</strong> is a no-code innovation challenge designed for MRV
+                    engineering students. Teams will work together to create design-first solutions using creativity,
+                    prototyping, and idea execution—without writing a single line of code.
+                </p>
+                <div class="about-highlights" id="aboutCards">
+                    <div class="highlight-card interactive-card" data-card="1">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="corner-decoration"></div>
+                                <span class="floating-badge">Popular</span>
+                                <div class="highlight-icon bounce-icon">🎨</div>
+                                <h3 class="shimmer-text">Design First</h3>
+                                <p>Focus on creativity and user experience</p>
+                                <div class="card-particles">
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                </div>
+                                <div class="glow-effect"></div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Design-Centric Approach</h3>
+                                <ul>
+                                    <li>User experience research</li>
+                                    <li>Wireframing & prototyping</li>
+                                    <li>Visual design excellence</li>
+                                    <li>Usability testing</li>
+                                </ul>
+                                <button class="back-btn">Close</button>
+                            </div>
+                        </div>
+                        <div class="ripple-container"></div>
+                    </div>
+                    <div class="highlight-card interactive-card" data-card="2">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="corner-decoration"></div>
+                                <span class="floating-badge new">New</span>
+                                <div class="highlight-icon bounce-icon">💻</div>
+                                <h3 class="shimmer-text">No Code Required</h3>
+                                <p>Build with mockups, prototypes, and presentations</p>
+                                <div class="card-particles">
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                </div>
+                                <div class="glow-effect"></div>
+                            </div>
+                            <div class="card-back">
+                                <h3>No-Code Tools</h3>
+                                <ul>
+                                    <li>Figma, Canva, Adobe XD</li>
+                                    <li>PowerPoint presentations</li>
+                                    <li>No-code app builders</li>
+                                    <li>Mockup generators</li>
+                                </ul>
+                                <button class="back-btn">Close</button>
+                            </div>
+                        </div>
+                        <div class="ripple-container"></div>
+                    </div>
+                    <div class="highlight-card interactive-card" data-card="3">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="corner-decoration"></div>
+                                <span class="floating-badge">Featured</span>
+                                <div class="highlight-icon bounce-icon">👥</div>
+                                <h3 class="shimmer-text">Team Challenge</h3>
+                                <p>Collaborate with 2-4 members</p>
+                                <div class="card-particles">
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                    <span class="particle"></span>
+                                </div>
+                                <div class="glow-effect"></div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Collaboration Benefits</h3>
+                                <ul>
+                                    <li>Diverse skill sets</li>
+                                    <li>Shared creativity</li>
+                                    <li>Team problem-solving</li>
+                                    <li>Networking opportunities</li>
+                                </ul>
+                                <button class="back-btn">Close</button>
+                            </div>
+                        </div>
+                        <div class="ripple-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay" id="modalOverlay"></div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="schedule-particles" id="scheduleParticles"></div>
+        <div class="schedule-spotlight" id="spotlight"></div>
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+
+        <div class="container">
+            <h2 class="section-title gradient-flow">Event Schedule</h2>
+
+            <div class="schedule-content">
+                <div class="timeline-progress">
+                    <div class="progress-line" id="progressLine"></div>
+                    <div class="progress-indicator" id="progressIndicator"></div>
+                </div>
+
+                <div class="schedule-grid" id="scheduleGrid">
+                    <!-- Schedule items will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="themes" id="themes">
+        <div id="themesParticles" class="themes-particles"></div>
+        <div class="themes-bg-overlay"></div>
+        <div class="container">
+            <h2 class="section-title">Problem Statements & Themes</h2>
+            <p class="section-subtitle">Choose a theme that inspires your team's innovation</p>
+            <div class="selected-counter" id="selectedCounter">
+                <span class="counter-icon">✓</span>
+                <span class="counter-text">0 themes selected</span>
+            </div>
+            <div class="themes-grid" id="themesGrid">
+                <!-- Cards will be dynamically generated -->
+            </div>
+        </div>
+        <!-- Toast Notification -->
+        <div class="toast" id="themeToast">
+            <span class="toast-icon">✓</span>
+            <span class="toast-message"></span>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="prizes" id="prizes">
+        <div class="container">
+            <h2 class="section-title">Prizes & Rewards</h2>
+            <div class="prizes-grid">
+                <div class="prize-card">
+                    <div class="prize-icon">🏆</div>
+                    <h3>Certificates</h3>
+                    <p>All participants receive completion certificates</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">📱</div>
+                    <h3>Social Recognition</h3>
+                    <p>Featured on NIAT and Base44 social media channels</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">🎁</div>
+                    <h3>Goodies & Hampers</h3>
+                    <p>Exclusive merchandise and gift hampers for winners</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">👨‍🏫</div>
+                    <h3>Mentor Interactions</h3>
+                    <p>One-on-one sessions with industry experts</p>
+                </div>
+                <div class="prize-card">
+                    <div class="prize-icon">⭐</div>
+                    <h3>Finalist Showcase</h3>
+                    <p>Top teams showcased on official platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="register">
+        <div class="circuit-pattern"></div>
+        <div class="container">
+            <h2 class="section-title">Register Your Team</h2>
+            <p class="section-subtitle">Teams of 2-4 members only • No solo registration</p>
+            <div class="registration-content">
+                <div class="registration-info">
+                    <h3>Team Registration Details</h3>
+                    <ul class="registration-list">
+                        <li><span class="arrow-icon">→</span> <strong>Team Size:</strong> 2-4 members (no solo
+                            participation)</li>
+                        <li><span class="arrow-icon">→</span> <strong>Required Information:</strong>
+                            <ul>
+                                <li>Team Name</li>
+                                <li>Team Leader: Name, Phone, Email, Department</li>
+                                <li>Members 2-4: Name, Phone, Department</li>
+                                <li>Idea Category/Theme</li>
+                            </ul>
+                        </li>
+                        <li><span class="arrow-icon">→</span> <strong>Deadline:</strong> Register before 23 November
+                            2025</li>
+                        <li><span class="arrow-icon">→</span> <strong>Note:</strong> Teams can be formed on the spot,
+                            but must register as a team</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-large btn-animated" id="registerBtn">
+                        Register Now <span class="arrow-anim">→</span>
+                    </a>
+                </div>
+                <div class="registration-qr">
+                    <div class="qr-placeholder registration-qr-glow">
+                        <img src="./assets/registration-qr.png" alt="Registration QR Code" class="qr-code qr-pulse"
+                            style="display: block !important; opacity: 1 !important; visibility: visible !important;">
+                        <p class="qr-label">SCAN TO REGISTER</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section class="whatsapp" id="whatsapp">
+        <div class="container">
+            <h2 class="section-title">Join Our WhatsApp Group</h2>
+            <p class="section-subtitle">Stay updated with latest announcements and connect with other participants</p>
+            <div class="whatsapp-content">
+                <div class="whatsapp-qr">
+                    <div class="qr-placeholder whatsapp-qr-animated">
+                        <img src="./assets/whatsapp-qr.png" alt="WhatsApp Group QR Code" class="qr-code qr-pulse">
+                        <p class="qr-label">SCAN TO JOIN</p>
+                    </div>
+                </div>
+                <div class="whatsapp-info">
+                    <div class="whatsapp-gradient-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                            <defs>
+                                <linearGradient id="wa-gradient" x1="0" y1="0" x2="24" y2="24"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#25D366" />
+                                    <stop offset="1" stop-color="#128C7E" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#wa-gradient)"
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                    </div>
+                    <h3>Get Real-Time Updates</h3>
+                    <ul class="whatsapp-list">
+                        <li>Event reminders and notifications</li>
+                        <li>Last-minute announcements</li>
+                        <li>Connect with fellow participants</li>
+                        <li>Quick support from organizers</li>
+                    </ul>
+                    <a href="#" class="btn btn-whatsapp" id="whatsappBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                        </svg>
+                        Join WhatsApp Group
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="rules" id="rules">
+        <div class="container">
+            <h2 class="section-title">Rules & Eligibility</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>Team Requirements</h3>
+                    <ul>
+                        <li>Teams must have 2-4 members</li>
+                        <li>No solo registration allowed</li>
+                        <li>Teams can be formed on-site but must register together</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <h3>No Coding Policy</h3>
+                    <ul>
+                        <li>Absolutely no coding allowed</li>
+                        <li>Use presentations, mockups, and UI flows</li>
+                        <li>Focus on design and concept execution</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <h3>Originality</h3>
+                    <ul>
+                        <li>All ideas must be original</li>
+                        <li>No plagiarism or copying</li>
+                        <li>Teams must present their own work</li>
+                    </ul>
+                </div>
+                <div class="rule-card">
+                    <h3>Judging Criteria</h3>
+                    <ul>
+                        <li>Innovation and creativity</li>
+                        <li>Feasibility and practicality</li>
+                        <li>Presentation quality</li>
+                        <li>Judges' decision is final</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I register solo?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, solo registration is not allowed. You must form a team of 2-4 members to participate in
+                            the hackathon.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is coding required for this hackathon?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No! This is a no-code hackathon. You'll use tools like presentations, mockups, wireframes,
+                            and prototyping platforms—no programming required.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is there a registration fee?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, the hackathon is completely free for all MRV engineering students. Just register your
+                            team and participate!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Will I receive a certificate?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! All participants will receive certificates of participation. Winners will receive
+                            additional recognition and prizes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can teams be formed on the spot?</span>
+                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can form teams on the day of the event. However, you must register as a team before
+                            the registration deadline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section class="venue" id="venue">
+        <div class="venue-particles"></div>
+        <div class="container">
+            <h2 class="section-title">Event Venue</h2>
+            <div class="venue-content">
+                <!-- Left Side - Information -->
+                <div class="venue-info">
+                    <h3>Malla Reddy Vishwavidyapeeth</h3>
+                    <p class="venue-address">Engineering Campus, Hyderabad</p>
+
+                    <!-- Full Address -->
+                    <div class="venue-full-address">
+                        <p><strong>Full Address:</strong></p>
+                        <p>Venkatarama Colony, Suraram</p>
+                        <p>Near Malla Reddy Hospital</p>
+                        <p>Hyderabad, Telangana 500055</p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="venue-contact">
+                        <h4>Contact Information</h4>
+                        <div class="contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <div>
+                                <a href="tel:9497194971">94971-94971</a> •
+                                <a href="tel:9177878365">91778-78365</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span>Campus Type: Engineering Campus</span>
+                        </div>
+                    </div>
+
+                    <!-- Transport Information -->
+                    <div class="venue-transport">
+                        <h4>Public Transport Connectivity</h4>
+
+                        <div class="transport-grid">
+                            <div class="transport-card">
+                                <strong>🚂 Nearest Railway</strong>
+                                <p>Medchal Station (3 km)</p>
+                            </div>
+                            <div class="transport-card">
+                                <strong>🅿️ Parking</strong>
+                                <p>Available on campus</p>
+                            </div>
+                        </div>
+
+                        <div class="bus-routes">
+                            <strong>TSRTC Bus Routes to Suraram:</strong>
+                            <div>
+                                <span class="bus-number">230A</span>
+                                <span class="bus-number">230P</span>
+                                <span class="bus-number">283A</span>
+                                <span class="bus-number">283D</span>
+                                <span class="bus-number">283I</span>
+                                <span class="bus-number">283S</span>
+                                <span class="bus-number">289M</span>
+                                <span class="bus-number">272M</span>
+                                <span class="bus-number">511</span>
+                            </div>
+                        </div>
+
+                        <div class="key-locations">
+                            <strong>Key Bus Stops Nearby:</strong>
+                            <span class="location-tag">Suraram X Roads</span>
+                            <span class="location-tag">Suraram Colony Bus Stop</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="venue-actions">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Malla+Reddy+Vishwavidyapeeth,+Venkatarama+Colony,+Suraram,+Hyderabad,+Telangana+500055"
+                            target="_blank" class="btn-directions" rel="noopener noreferrer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Get Directions
+                        </a>
+                        <a href="tel:9497194971" class="btn-call">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            Call Venue
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side - Interactive Map -->
+                <div class="venue-map">
+                    <div class="venue-map-container">
+                        <!-- Map Loading Indicator -->
+                        <div class="map-loading">
+                            <div class="map-spinner"></div>
+                        </div>
+
+                        <!-- Interactive Google Maps -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.1449190815933!2d78.42885717463045!3d17.548285698151023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8f6a40c78ad1%3A0x743679d7810efe3f!2sMalla%20Reddy%20Vishwavidyapeeth!5e0!3m2!1sen!2sin!4v1763546355453!5m2!1sen!2sin"
+                            width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Malla Reddy Vishwavidyapeeth Location Map">
+                        </iframe>
+
+                        <!-- Map Controls -->
+                        <div class="map-controls">
+                            <button class="map-control-btn"
+                                onclick="window.open('https://www.google.com/maps/place/Malla+Reddy+Vishwavidyapeeth/@17.5482857,78.4288572,17z', '_blank')"
+                                title="Open in Google Maps" aria-label="Open in Google Maps">
+                                🗺️
+                            </button>
+                            <button class="map-control-btn"
+                                onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=17.548285698151023,78.42885717463045', '_blank')"
+                                title="Get Directions" aria-label="Get Directions">
+                                🧭
+                            </button>
+                        </div>
+
+                        <!-- Map Info Badge -->
+                        <div class="map-info-badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Suraram, Hyderabad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logos">
+                    <img src="./assets/niat-logo.png" alt="NIAT Logo" class="footer-logo">
+                    <img src="./assets/base44-logo.png" alt="Base44 Logo" class="footer-logo">
+                    <img src="./assets/mrv-logo.png" alt="MRV Logo" class="footer-logo">
+                    <img src="./assets/mrtc-logo.png" alt="MRTC Logo" class="footer-logo">
+                    <img src="./assets/wix-logo.png" alt="WIX Logo" class="footer-logo">
+                </div>
+                <div class="footer-info">
+                    <h3>Contact Us</h3>
+                    <p><strong>NIAT Student Success Department</strong></p>
+                    <p>Email: <a href="mailto:events@niat.edu">events@niat.edu</a></p>
+                    <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NIAT × Base44 Hackathon. All rights reserved.</p>
+                <p>Organized by NIAT Student Success Department in collaboration with Base44, MRV, MRTC, and WIX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="about-interactions.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="schedule-interactions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="themes-advanced.js"></script>
+    <script src="section-animations.js"></script>
+    <script src="venue-enhancements.js"></script>
+</body>
+
+</html>
